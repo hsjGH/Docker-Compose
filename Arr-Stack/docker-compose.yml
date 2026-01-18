@@ -5,7 +5,7 @@ services:
     cap_add:
       - NET_ADMIN
     environment:
-      - VPN_SERVICE_PROVIDER=<INSERT your vpn provider>
+      - VPN_SERVICE_PROVIDER=<INSERT your VPN provider>
       - OPENVPN_USER=<INSERT user>
       - OPENVPN_PASSWORD=<INSERT user auth>
       - SERVER_COUNTRIES=Switzerland # You can change this but I advice Switzerland

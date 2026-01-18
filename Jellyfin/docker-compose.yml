@@ -1,0 +1,43 @@
+services:
+  jellyfin:
+    image: jellyfin/jellyfin:latest
+    container_name: jellyfin
+    user: <INSERT puid/pgid>                      
+    group_add:
+      - "44"    # video group GID
+      - "993"   # render group GID 
+    network_mode: "host"
+    restart: unless-stopped
+
+    devices:
+      - /dev/dri:/dev/dri   # access to hardware device for hardware transcoding
+
+    volumes:
+      - type: bind
+        source: <INSERT config location>
+        target: /config
+      - type: bind
+        source: <INSERT cache location>
+        target: /cache
+      - type: bind
+        source: <INSERT media location>
+        target: /media
+    # Optional: additional media directory, e.g. an external drive
+    #- type: bind
+    #  source: /mnt/media2
+    #  target: /media2
+    #  read_only: true
+
+    # Optional: additional fonts for subtitle transcoding
+    #- type: bind
+    #  source: /usr/share/fonts/truetype/custom
+    #  target: /usr/local/share/fonts/custom
+    #  read_only: true
+
+
+    environment:
+      - TZ=Europe/Brussels
+      #- JELLYFIN_PublishedServerUrl=http://jouw.domein.of.ip:8096   # Remote access through reverse proxy (not needed for vpn tunnel)
+
+    extra_hosts:
+      - "host.docker.internal:host-gateway"   # Linux-only host connectivity 
