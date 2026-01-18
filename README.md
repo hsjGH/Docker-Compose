@@ -10,12 +10,12 @@ The setup is modular, practical, and intended for both **learning purposes** and
   Self-hosted media server for movies, series, and music.
 
 ### *arr Stack (Media Automation)
-- **Prowlarr** – Indexer manager
 - **Radarr** – Movie management
 - **Sonarr** – TV series management
 - **Bazarr** – Subtitle management
 - **qBittorrent** – Torrent client
 - **Gluetun** – VPN container for secure traffic routing
+- **Prowlarr** – Indexer manager
 - **FlareSolverr** – Cloudflare challenge solver for indexers
 
 All *arr services are designed to work together as a single automated pipeline.
@@ -30,6 +30,7 @@ Each service or stack is defined using its own `docker-compose.yml`, allowing:
 - Independent deployment
 - Easy modification
 - Clear separation of concerns
+- "<INSERT xxxxx>" is always used when you need to add your specific details
 
 Environment variables and volume mappings are expected to be customized per system.
 

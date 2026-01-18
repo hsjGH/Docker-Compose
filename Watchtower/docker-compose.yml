@@ -1,0 +1,16 @@
+services:
+  watchtower:
+    image: containrrr/watchtower:latest
+    container_name: watchtower
+    restart: unless-stopped
+
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+
+    environment:
+      - TZ=Europe/Brussels
+      - WATCHTOWER_CLEANUP=true
+      - WATCHTOWER_INCLUDE_STOPPED=true
+      - WATCHTOWER_POLL_INTERVAL=86400      # In seconds, so this is one per day 
+      #- WATCHTOWER_LABEL_ENABLE=true       # Label which containers to update  
+
