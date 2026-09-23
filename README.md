@@ -43,5 +43,4 @@ Environment variables and volume mappings are expected to be customized per syst
 
 Clone the repository:
 ```bash
-git clone https://github.com/yourusername/your-repo-name.git
-cd your-repo-name
+git clone https://github.com/hsjGH/docker-compose.git
